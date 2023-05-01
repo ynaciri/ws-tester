@@ -1,0 +1,17 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "SampleContract.sol": {
+      "content": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.7.6;\r\n\r\ncontract SampleContract {\r\n  uint count;\r\n\r\n  event CountIncreased(uint newValue);\r\n  event CountDecreased(uint newValue);\r\n\r\n  function inc() public {\r\n    count = count + 1;\r\n    emit CountIncreased(count);\r\n  }\r\n\r\n  function dec() public {\r\n    count = count - 1;\r\n    emit CountDecreased(count);\r\n  }\r\n\r\n  function add(uint value) public {\r\n    for (uint i=0 ; i < value ; i++) {\r\n      inc();\r\n    }\r\n  }\r\n\r\n  function sub(uint value) public {\r\n    for (uint i=0 ; i < value ; i++) {\r\n      dec();\r\n    }\r\n  }\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "outputSelection": {
+      "*": {
+        "*": [
+          "*"
+        ]
+      }
+    }
+  }
+}

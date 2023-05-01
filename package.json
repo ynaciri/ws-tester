@@ -1,0 +1,56 @@
+{
+  "name": "ws-tester",
+  "version": "1.0.0",
+  "description": "Program to test web3 websocket RPC resilience",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "babel-node -x \".ts\" -r dotenv/config src/index.ts",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "contracts": "node solidity/buildContract.js",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline --copy-files",
+    "lint": "eslint src",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ynaciri/ws-tester.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ynaciri/ws-tester/issues"
+  },
+  "homepage": "https://github.com/ynaciri/ws-tester#readme",
+  "dependencies": {
+    "ethers": "^5.7.2",
+    "ws": "^8.12.0"
+  },
+  "devDependencies": {
+    "solc": "=0.7.6",
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/node": "^7.20.7",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/node": "^18.13.0",
+    "@types/ws": "^8.5.4",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^9.1.2",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.32.0",
+    "eslint-config-babel": "^9.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "^2.8.3",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0"
+  }
+}
